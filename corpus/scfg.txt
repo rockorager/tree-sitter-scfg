@@ -1,0 +1,171 @@
+================================================================================
+Single directive
+================================================================================
+
+name param
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word))))
+
+================================================================================
+Comment
+================================================================================
+
+# comment
+name param
+
+--------------------------------------------------------------------------------
+    (config
+      (comment
+        (word))
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word))))
+
+================================================================================
+Multiple params
+================================================================================
+
+name param1 param2 param3
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word)
+          (word)
+          (word))))
+
+================================================================================
+Quoted params
+================================================================================
+
+name param1 "param2 " 'param3 '
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word)
+          (word)
+          (word))))
+
+================================================================================
+Block
+================================================================================
+
+name "param" {
+	name param
+}
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word))
+        (block
+          (directive
+            (directive_name
+              (word))
+            (directive_params
+              (word))))))
+
+================================================================================
+Escape Pair
+================================================================================
+
+name "par\xam"
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word
+            (esc_pair)))))
+
+================================================================================
+Example
+================================================================================
+
+train "Shinkansen" {
+	model "E5" {
+		max-speed 320km/h
+		weight 453.5t
+
+		lines-served "Tōhoku" "Hokkaido"
+	}
+	model "E7" {
+		max-speed 275km/h
+		weight 540t
+
+		lines-served "Hokuriku" "Jōetsu"
+	}
+}
+
+--------------------------------------------------------------------------------
+    (config
+      (directive
+        (directive_name
+          (word))
+        (directive_params
+          (word))
+        (block
+          (directive
+            (directive_name
+              (word))
+            (directive_params
+              (word))
+            (block
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)))
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)))
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)
+                  (word)))))
+          (directive
+            (directive_name
+              (word))
+            (directive_params
+              (word))
+            (block
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)))
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)))
+              (directive
+                (directive_name
+                  (word))
+                (directive_params
+                  (word)
+                  (word))))))))

@@ -1,0 +1,7 @@
+# tree-sitter generate
+/src/
+/bindings/
+/Cargo.toml
+binding.gyp
+Cargo.lock
+/target/
