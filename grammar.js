@@ -14,7 +14,9 @@ module.exports = grammar({
   name: "scfg",
 
   rules: {
-    config: ($) => repeat(choice($.directive, $.comment)),
+    config: ($) => repeat($._line),
+
+    _line: ($) => choice($.comment, $.directive),
 
     comment: ($) => seq("#", repeat($.word), $._newline),
 
@@ -30,7 +32,7 @@ module.exports = grammar({
 
     directive_params: ($) => seq($.word, repeat($.word)),
 
-    block: ($) => seq("{", $._newline, repeat1($.directive), "}"),
+    block: ($) => seq("{", $._newline, repeat1($._line), "}"),
 
     word: ($) => choice($._atom, $._dquote_word, $._squote_word),
 
