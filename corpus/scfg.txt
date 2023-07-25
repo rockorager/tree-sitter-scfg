@@ -16,13 +16,12 @@ name param
 Comment
 ================================================================================
 
-# comment
+# comment has "" quotes it's
 name param
 
 --------------------------------------------------------------------------------
     (config
-      (comment
-        (word))
+      (comment)
       (directive
         (directive_name
           (word))

@@ -18,7 +18,7 @@ module.exports = grammar({
 
     _line: ($) => choice($.comment, $.directive),
 
-    comment: ($) => seq("#", repeat($.word), $._newline),
+    comment: ($) => seq("#", repeat(VCHAR), $._newline),
 
     directive: ($) =>
       seq(
