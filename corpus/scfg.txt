@@ -56,9 +56,11 @@ name param1 "param2 " 'param3 '
         (directive_name
           (word))
         (directive_params
-          (word)
-          (word)
-          (word))))
+	  (word)
+          (word
+	    (dquote_word))
+          (word
+	    (squote_word)))))
 
 ================================================================================
 Block
@@ -74,7 +76,8 @@ name "param" {
         (directive_name
           (word))
         (directive_params
-          (word))
+          (word
+	    (dquote_word)))
         (block
           (directive
             (directive_name
@@ -95,7 +98,8 @@ name "par\xam"
           (word))
         (directive_params
           (word
-            (esc_pair)))))
+	    (dquote_word
+	      (esc_pair))))))
 
 ================================================================================
 Example
@@ -122,13 +126,15 @@ train "Shinkansen" {
         (directive_name
           (word))
         (directive_params
-          (word))
+          (word
+	    (dquote_word)))
         (block
           (directive
             (directive_name
               (word))
             (directive_params
-              (word))
+              (word
+		(dquote_word)))
             (block
               (directive
                 (directive_name
@@ -144,13 +150,16 @@ train "Shinkansen" {
                 (directive_name
                   (word))
                 (directive_params
-                  (word)
-                  (word)))))
+                  (word
+		    (dquote_word))
+                  (word
+		    (dquote_word))))))
           (directive
             (directive_name
               (word))
             (directive_params
-              (word))
+              (word
+		(dquote_word)))
             (block
               (directive
                 (directive_name
@@ -166,5 +175,7 @@ train "Shinkansen" {
                 (directive_name
                   (word))
                 (directive_params
-                  (word)
-                  (word))))))))
+                  (word
+		    (dquote_word))
+                  (word
+		    (dquote_word)))))))))

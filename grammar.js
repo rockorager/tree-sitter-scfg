@@ -34,13 +34,13 @@ module.exports = grammar({
 
     block: ($) => seq("{", $._newline, repeat1($._line), "}"),
 
-    word: ($) => choice($._atom, $._dquote_word, $._squote_word),
+    word: ($) => choice($._atom, $.dquote_word, $.squote_word),
 
     _atom: ($) => token(repeat1(choice(ACHAR, seq("\\", VCHAR)))),
 
-    _dquote_word: ($) => seq('"', repeat(choice(DQCHAR, $.esc_pair)), '"'),
+    dquote_word: ($) => seq('"', repeat(choice(DQCHAR, $.esc_pair)), '"'),
 
-    _squote_word: ($) => seq("'", repeat(SQCHAR), "'"),
+    squote_word: ($) => seq("'", repeat(SQCHAR), "'"),
 
     esc_pair: ($) => seq("\\", VCHAR),
 
