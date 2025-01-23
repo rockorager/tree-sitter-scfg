@@ -15,13 +15,5 @@
   },
   "scripts": {
     "test": "tree-sitter test"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.scfg",
-      "file-types": [
-        "scfg"
-      ]
-    }
-  ]
+  }
 }
